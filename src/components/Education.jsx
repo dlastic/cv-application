@@ -20,7 +20,8 @@ export default function Education() {
         <label htmlFor="description">Description</label>
         <textarea id="description" name="description"></textarea>
 
-        <button type="submit">Add Education</button>
+        <button type="button">Delete</button>
+        <button type="button">Add Education</button>
       </form>
     </div>
   );

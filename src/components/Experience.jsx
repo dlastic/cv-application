@@ -20,7 +20,8 @@ export default function Experience() {
         <label htmlFor="description">Description</label>
         <textarea id="description" name="description"></textarea>
 
-        <button type="submit">Add Experience</button>
+        <button type="button">Delete</button>
+        <button type="button">Add Experience</button>
       </form>
     </div>
   );

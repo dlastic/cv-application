@@ -4,16 +4,23 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Languages from "./components/Languages";
+import CVDisplay from "./components/CVDisplay";
 
 export default function App() {
   return (
     <div className="App">
-      <h1>CV Generator</h1>
-      <PersonalInfo />
-      <Experience />
-      <Education />
-      <Skills />
-      <Languages />
+      <div className="edit-section">
+        <h1>CV Generator</h1>
+        <PersonalInfo />
+        <Experience />
+        <Education />
+        <Skills />
+        <Languages />
+      </div>
+
+      <div className="preview-section">
+        <CVDisplay />
+      </div>
     </div>
   );
 }

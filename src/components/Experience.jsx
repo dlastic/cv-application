@@ -1,27 +1,65 @@
 import "../styles/Experience.css";
 
-export default function Experience() {
+export default function Experience({
+  experience,
+  setExperience,
+  deleteExperience,
+}) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setExperience({ ...experience, [name]: value });
+  };
+
   return (
     <div className="experience">
-      <h2>Work Experience</h2>
       <form>
-        <label htmlFor="company">Company</label>
-        <input type="text" id="company" name="company" />
+        <label htmlFor={`company-${experience.id}`}>Company</label>
+        <input
+          type="text"
+          id={`company-${experience.id}`}
+          name="company"
+          value={experience.company}
+          onChange={handleChange}
+        />
 
-        <label htmlFor="job-title">Job Title</label>
-        <input type="text" id="job-title" name="job-title" />
+        <label htmlFor={`jobTitle-${experience.id}`}>Job Title</label>
+        <input
+          type="text"
+          id={`jobTitle-${experience.id}`}
+          name="jobTitle"
+          value={experience.jobTitle}
+          onChange={handleChange}
+        />
 
-        <label htmlFor="start-date">Start Date</label>
-        <input type="date" id="start-date" name="start-date" />
+        <label htmlFor={`startDate-${experience.id}`}>Start Date</label>
+        <input
+          type="date"
+          id={`startDate-${experience.id}`}
+          name="startDate"
+          value={experience.startDate}
+          onChange={handleChange}
+        />
 
-        <label htmlFor="end-date">End Date</label>
-        <input type="date" id="end-date" name="end-date" />
+        <label htmlFor={`endDate-${experience.id}`}>End Date</label>
+        <input
+          type="date"
+          id={`endDate-${experience.id}`}
+          name="endDate"
+          value={experience.endDate}
+          onChange={handleChange}
+        />
 
-        <label htmlFor="description">Description</label>
-        <textarea id="description" name="description"></textarea>
+        <label htmlFor={`description-${experience.id}`}>Description</label>
+        <textarea
+          id={`description-${experience.id}`}
+          name="description"
+          value={experience.description}
+          onChange={handleChange}
+        ></textarea>
 
-        <button type="button">Delete</button>
-        <button type="button">Add Experience</button>
+        <button type="button" onClick={deleteExperience}>
+          Delete
+        </button>
       </form>
     </div>
   );

@@ -1,6 +1,20 @@
 import "../styles/CVDisplay.css";
 
-export default function CVDisplay({ info, experiences, educations, skills }) {
+export default function CVDisplay({
+  info,
+  experiences,
+  educations,
+  skills,
+  languages,
+}) {
+  const proficiencyMap = {
+    elementary: "Elementary proficiency",
+    limited: "Limited working proficiency",
+    professional: "Professional working proficiency",
+    full: "Full professional proficiency",
+    native: "Native or bilingual proficiency",
+  };
+
   return (
     <div className="cv-display">
       <h2>Preview</h2>
@@ -45,6 +59,17 @@ export default function CVDisplay({ info, experiences, educations, skills }) {
         <ul>
           {skills.map((skill) => (
             <li key={skill.id}>{skill.name}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="languages">
+        <h2>Languages</h2>
+        <ul>
+          {languages.map((language) => (
+            <li key={language.id}>
+              {language.lang} - {proficiencyMap[language.proficiency]}
+            </li>
           ))}
         </ul>
       </div>

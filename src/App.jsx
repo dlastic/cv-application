@@ -4,7 +4,7 @@ import PersonalInfo from "./components/PersonalInfo";
 import ExperienceList from "./components/ExperienceList";
 import EducationList from "./components/EducationList";
 import SkillsList from "./components/SkillsList";
-import Languages from "./components/Languages";
+import LanguagesList from "./components/LanguagesList";
 import CVDisplay from "./components/CVDisplay";
 
 export default function App() {
@@ -40,6 +40,13 @@ export default function App() {
       name: "",
     },
   ]);
+  const [languages, setLanguages] = useState([
+    {
+      id: Date.now(),
+      lang: "",
+      proficiency: "",
+    },
+  ]);
 
   return (
     <div className="App">
@@ -52,7 +59,7 @@ export default function App() {
         />
         <EducationList educations={educations} setEducations={setEducations} />
         <SkillsList skills={skills} setSkills={setSkills} />
-        <Languages />
+        <LanguagesList languages={languages} setLanguages={setLanguages} />
       </div>
 
       <div className="preview-section">
@@ -61,6 +68,7 @@ export default function App() {
           experiences={experiences}
           educations={educations}
           skills={skills}
+          languages={languages}
         />
       </div>
     </div>

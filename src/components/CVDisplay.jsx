@@ -1,6 +1,6 @@
 import "../styles/CVDisplay.css";
 
-export default function CVDisplay({ info, experiences }) {
+export default function CVDisplay({ info, experiences, educations }) {
   return (
     <div className="cv-display">
       <h2>Preview</h2>
@@ -22,6 +22,20 @@ export default function CVDisplay({ info, experiences }) {
               {exp.startDate} - {exp.endDate}
             </p>
             <p>{exp.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="education">
+        <h2>Education</h2>
+        {educations.map((edu) => (
+          <div key={edu.id} className="education-item">
+            <h3>{edu.degree}</h3>
+            <h4>{edu.institution}</h4>
+            <p>
+              {edu.startDate} - {edu.endDate}
+            </p>
+            <p>{edu.description}</p>
           </div>
         ))}
       </div>

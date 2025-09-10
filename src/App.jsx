@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import PersonalInfo from "./components/PersonalInfo";
 import ExperienceList from "./components/ExperienceList";
-import Education from "./components/Education";
+import EducationList from "./components/EducationList";
 import Skills from "./components/Skills";
 import Languages from "./components/Languages";
 import CVDisplay from "./components/CVDisplay";
@@ -24,6 +24,16 @@ export default function App() {
       description: "",
     },
   ]);
+  const [educations, setEducations] = useState([
+    {
+      id: Date.now(),
+      institution: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    },
+  ]);
 
   return (
     <div className="App">
@@ -34,13 +44,17 @@ export default function App() {
           experiences={experiences}
           setExperiences={setExperiences}
         />
-        <Education />
+        <EducationList educations={educations} setEducations={setEducations} />
         <Skills />
         <Languages />
       </div>
 
       <div className="preview-section">
-        <CVDisplay info={personalInfo} experiences={experiences} />
+        <CVDisplay
+          info={personalInfo}
+          experiences={experiences}
+          educations={educations}
+        />
       </div>
     </div>
   );

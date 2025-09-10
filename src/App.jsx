@@ -3,7 +3,7 @@ import "./App.css";
 import PersonalInfo from "./components/PersonalInfo";
 import ExperienceList from "./components/ExperienceList";
 import EducationList from "./components/EducationList";
-import Skills from "./components/Skills";
+import SkillsList from "./components/SkillsList";
 import Languages from "./components/Languages";
 import CVDisplay from "./components/CVDisplay";
 
@@ -34,6 +34,12 @@ export default function App() {
       description: "",
     },
   ]);
+  const [skills, setSkills] = useState([
+    {
+      id: Date.now(),
+      name: "",
+    },
+  ]);
 
   return (
     <div className="App">
@@ -45,7 +51,7 @@ export default function App() {
           setExperiences={setExperiences}
         />
         <EducationList educations={educations} setEducations={setEducations} />
-        <Skills />
+        <SkillsList skills={skills} setSkills={setSkills} />
         <Languages />
       </div>
 
@@ -54,6 +60,7 @@ export default function App() {
           info={personalInfo}
           experiences={experiences}
           educations={educations}
+          skills={skills}
         />
       </div>
     </div>

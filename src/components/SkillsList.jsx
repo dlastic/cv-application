@@ -1,0 +1,32 @@
+import Skill from "./Skill";
+
+export default function SkillsList({ skills, setSkills }) {
+  const addSkill = () => {
+    setSkills([...skills, { id: Date.now(), name: "" }]);
+  };
+
+  const updateSkill = (id, updatedSkill) => {
+    setSkills(skills.map((skill) => (skill.id === id ? updatedSkill : skill)));
+  };
+
+  const deleteSkill = (id) => {
+    setSkills(skills.filter((skill) => skill.id !== id));
+  };
+
+  return (
+    <div className="skills-list">
+      <h2>Skills</h2>
+      {skills.map((skill) => (
+        <Skill
+          key={skill.id}
+          skill={skill}
+          setSkill={(updatedSkill) => updateSkill(skill.id, updatedSkill)}
+          deleteSkill={() => deleteSkill(skill.id)}
+        />
+      ))}
+      <button type="button" onClick={addSkill}>
+        Add Skill
+      </button>
+    </div>
+  );
+}

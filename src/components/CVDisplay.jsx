@@ -1,6 +1,6 @@
 import "../styles/CVDisplay.css";
 
-export default function CVDisplay({ info, experiences, educations }) {
+export default function CVDisplay({ info, experiences, educations, skills }) {
   return (
     <div className="cv-display">
       <h2>Preview</h2>
@@ -38,6 +38,15 @@ export default function CVDisplay({ info, experiences, educations }) {
             <p>{edu.description}</p>
           </div>
         ))}
+      </div>
+
+      <div className="skills">
+        <h2>Skills</h2>
+        <ul>
+          {skills.map((skill) => (
+            <li key={skill.id}>{skill.name}</li>
+          ))}
+        </ul>
       </div>
 
       <button>Download PDF</button>

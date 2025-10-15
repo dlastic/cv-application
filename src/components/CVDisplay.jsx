@@ -26,7 +26,7 @@ export default function CVDisplay({
         <p>{info.address}</p>
       </div>
 
-      <div className="experience">
+      <div className="experience-list">
         <h2>Work Experience</h2>
         {experiences.map((exp) => (
           <div key={exp.id} className="experience-item">
@@ -40,7 +40,7 @@ export default function CVDisplay({
         ))}
       </div>
 
-      <div className="education">
+      <div className="education-list">
         <h2>Education</h2>
         {educations.map((edu) => (
           <div key={edu.id} className="education-item">
@@ -54,7 +54,7 @@ export default function CVDisplay({
         ))}
       </div>
 
-      <div className="skills">
+      <div className="skills-list">
         <h2>Skills</h2>
         <ul>
           {skills.map((skill) => (
@@ -63,7 +63,7 @@ export default function CVDisplay({
         </ul>
       </div>
 
-      <div className="languages">
+      <div className="languages-list">
         <h2>Languages</h2>
         <ul>
           {languages.map((language) => (

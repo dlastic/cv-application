@@ -16,6 +16,7 @@ export default function Language({ language, setLanguage, deleteLanguage }) {
           name="lang"
           value={language.lang}
           onChange={handleChange}
+          placeholder="Enter language"
         />
 
         <label htmlFor={`proficiency-${language.id}`}>Proficiency</label>

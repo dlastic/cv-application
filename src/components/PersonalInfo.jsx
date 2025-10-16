@@ -17,6 +17,7 @@ export default function PersonalInfo({ info, setInfo }) {
           name="name"
           value={info.name}
           onChange={handleChange}
+          placeholder="Enter first and last name"
         />
 
         <label htmlFor="email">Email</label>
@@ -26,6 +27,7 @@ export default function PersonalInfo({ info, setInfo }) {
           name="email"
           value={info.email}
           onChange={handleChange}
+          placeholder="Enter email address"
         />
 
         <label htmlFor="phone">Phone</label>
@@ -35,6 +37,7 @@ export default function PersonalInfo({ info, setInfo }) {
           name="phone"
           value={info.phone}
           onChange={handleChange}
+          placeholder="Enter phone number"
         />
 
         <label htmlFor="address">Address</label>
@@ -44,6 +47,7 @@ export default function PersonalInfo({ info, setInfo }) {
           name="address"
           value={info.address}
           onChange={handleChange}
+          placeholder="Enter city and country"
         />
       </form>
     </div>

@@ -20,6 +20,7 @@ export default function Education({
           name="institution"
           value={education.institution}
           onChange={handleChange}
+          placeholder="Enter institution name"
         />
 
         <label htmlFor={`degree-${education.id}`}>Degree</label>
@@ -29,6 +30,7 @@ export default function Education({
           name="degree"
           value={education.degree}
           onChange={handleChange}
+          placeholder="Enter degree"
         />
 
         <label htmlFor={`startDate-${education.id}`}>Start Date</label>
@@ -38,6 +40,7 @@ export default function Education({
           name="startDate"
           value={education.startDate}
           onChange={handleChange}
+          placeholder="Enter start date"
         />
 
         <label htmlFor={`endDate-${education.id}`}>End Date</label>
@@ -47,6 +50,7 @@ export default function Education({
           name="endDate"
           value={education.endDate}
           onChange={handleChange}
+          placeholder="Enter end date"
         />
 
         <label htmlFor={`description-${education.id}`}>Description</label>
@@ -55,6 +59,7 @@ export default function Education({
           name="description"
           value={education.description}
           onChange={handleChange}
+          placeholder="Describe your studies and achievements"
         ></textarea>
 
         <button type="button" onClick={deleteEducation}>

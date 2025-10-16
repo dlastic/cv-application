@@ -20,6 +20,7 @@ export default function Experience({
           name="company"
           value={experience.company}
           onChange={handleChange}
+          placeholder="Enter company name"
         />
 
         <label htmlFor={`jobTitle-${experience.id}`}>Job Title</label>
@@ -29,6 +30,7 @@ export default function Experience({
           name="jobTitle"
           value={experience.jobTitle}
           onChange={handleChange}
+          placeholder="Enter job title"
         />
 
         <label htmlFor={`startDate-${experience.id}`}>Start Date</label>
@@ -38,6 +40,7 @@ export default function Experience({
           name="startDate"
           value={experience.startDate}
           onChange={handleChange}
+          placeholder="Enter start date"
         />
 
         <label htmlFor={`endDate-${experience.id}`}>End Date</label>
@@ -47,6 +50,7 @@ export default function Experience({
           name="endDate"
           value={experience.endDate}
           onChange={handleChange}
+          placeholder="Enter end date"
         />
 
         <label htmlFor={`description-${experience.id}`}>Description</label>
@@ -55,6 +59,7 @@ export default function Experience({
           name="description"
           value={experience.description}
           onChange={handleChange}
+          placeholder="Describe your role and achievements"
         ></textarea>
 
         <button type="button" onClick={deleteExperience}>

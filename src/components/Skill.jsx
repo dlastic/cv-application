@@ -11,6 +11,7 @@ export default function Skill({ skill, setSkill, deleteSkill }) {
           name="skill"
           value={skill.name}
           onChange={(e) => setSkill({ ...skill, name: e.target.value })}
+          placeholder="Enter skill"
         />
 
         <button type="button" onClick={deleteSkill}>

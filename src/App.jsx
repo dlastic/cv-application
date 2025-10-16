@@ -31,7 +31,6 @@ export default function App() {
       degree: "",
       startDate: "",
       endDate: "",
-      description: "",
     },
   ]);
   const [skills, setSkills] = useState([

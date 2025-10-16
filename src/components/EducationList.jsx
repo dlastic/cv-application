@@ -10,15 +10,12 @@ export default function EducationList({ educations, setEducations }) {
         degree: "",
         startDate: "",
         endDate: "",
-        description: "",
       },
     ]);
   };
 
   const updateEducation = (id, updatedEdu) => {
-    setEducations(
-      educations.map((edu) => (edu.id === id ? updatedEdu : edu))
-    );
+    setEducations(educations.map((edu) => (edu.id === id ? updatedEdu : edu)));
   };
 
   const deleteEducation = (id) => {

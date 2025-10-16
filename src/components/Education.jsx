@@ -53,15 +53,6 @@ export default function Education({
           placeholder="Enter end date"
         />
 
-        <label htmlFor={`description-${education.id}`}>Description</label>
-        <textarea
-          id={`description-${education.id}`}
-          name="description"
-          value={education.description}
-          onChange={handleChange}
-          placeholder="Describe your studies and achievements"
-        ></textarea>
-
         <button type="button" onClick={deleteEducation}>
           Delete
         </button>

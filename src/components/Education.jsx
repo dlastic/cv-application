@@ -33,7 +33,7 @@ export default function Education({
 
         <label htmlFor={`startDate-${education.id}`}>Start Date</label>
         <input
-          type="date"
+          type="text"
           id={`startDate-${education.id}`}
           name="startDate"
           value={education.startDate}
@@ -42,7 +42,7 @@ export default function Education({
 
         <label htmlFor={`endDate-${education.id}`}>End Date</label>
         <input
-          type="date"
+          type="text"
           id={`endDate-${education.id}`}
           name="endDate"
           value={education.endDate}

@@ -33,7 +33,7 @@ export default function Experience({
 
         <label htmlFor={`startDate-${experience.id}`}>Start Date</label>
         <input
-          type="date"
+          type="text"
           id={`startDate-${experience.id}`}
           name="startDate"
           value={experience.startDate}
@@ -42,7 +42,7 @@ export default function Experience({
 
         <label htmlFor={`endDate-${experience.id}`}>End Date</label>
         <input
-          type="date"
+          type="text"
           id={`endDate-${experience.id}`}
           name="endDate"
           value={experience.endDate}

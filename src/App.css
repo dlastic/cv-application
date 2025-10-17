@@ -6,18 +6,26 @@
   --color-card-bg: #fafafa;
   --color-preview-card-bg: #e5e5e5;
   --color-border: #ccc;
+  --color-cv-text: #000;
+  --color-cv-border: #111;
   --color-text: #333;
 
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
   --space-md: 1rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
 
-  --font-sm: 0.9rem;
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
   --font-md: 1rem;
   --font-lg: 1.25rem;
   --font-xl: 1.5rem;
+  --font-2xl: 2rem;
+  --font-3xl: 2.5rem;
+  --font-4xl: 3rem;
 
   --border-radius: 8px;
 }
@@ -35,19 +43,12 @@ body {
   color: var(--color-text);
 }
 
-h1,
-h2,
-h3,
-h4 {
-  margin-bottom: var(--space-xs);
-}
-
 button {
   cursor: pointer;
   font-family: inherit;
   border: none;
   border-radius: var(--border-radius);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs) var(--space-md);
   background-color: var(--color-primary);
   color: white;
   transition: background 0.2s ease;
@@ -60,27 +61,33 @@ button:hover {
 .App {
   display: flex;
   margin: auto;
-  gap: var(--space-lg);
-  padding: var(--space-lg);
+  gap: var(--space-xl);
+  padding: var(--space-xl);
   max-width: 1500px;
 }
 
 .edit-section,
 .preview-section {
   background-color: var(--color-section-bg);
-  padding: var(--space-lg);
-  border-radius: var(--border-radius);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .edit-section {
+  min-width: 400px;
+  border-radius: var(--border-radius);
+  padding: var(--space-xl);
   flex: 1;
 }
 
 .preview-section {
+  padding: var(--space-xxl);
+  color: var(--color-cv-text);
   height: 297mm;
+  max-height: 297mm;
+  min-height: 297mm;
   width: 210mm;
-
+  max-width: 210mm;
+  min-width: 210mm;
 }
 
 .personal-info,
@@ -90,8 +97,8 @@ button:hover {
 .languages-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
@@ -101,7 +108,7 @@ button:hover {
 label {
   display: block;
   font-weight: 600;
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-xxs);
 }
 
 input[type="text"],
@@ -111,7 +118,7 @@ select,
 textarea {
   font-family: inherit;
   width: 100%;
-  padding: var(--space-sm);
+  padding: var(--space-xs);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   font-size: var(--font-md);
@@ -134,27 +141,71 @@ textarea:focus {
   outline: none;
 }
 
-.cv-display h2 {
-  color: var(--color-primary);
-  margin-bottom: var(--space-md);
-}
-
-.cv-display .personal-info,
-.cv-display .experience-list,
-.cv-display .education-list,
-.cv-display .skills-list,
-.cv-display .languages-list {
-  margin-bottom: var(--space-md);
-}
-
-.cv-display .experience-item,
-.cv-display .education-item {
-  margin-bottom: var(--space-sm);
-  padding: var(--space-sm);
+.cv-header {
+  text-align: center;
+  padding: var(--space-md);
+  border-bottom: 2px solid var(--color-cv-border);
   background-color: var(--color-preview-card-bg);
-  border-radius: var(--border-radius);
 }
 
-.cv-display ul {
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.contact-info p {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0;
+}
+
+.info h1 {
+  font-size: 1.8rem;
+}
+
+.cv-main {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+}
+
+.cv h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.cv h3 {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.cv-date {
+  font-size: var(--font-sm);
+}
+
+.cv-experience,
+.cv-skills {
+  border-bottom: 2px solid var(--color-cv-border);
+  padding-bottom: var(--space-md);
+}
+
+.cv-experience,
+.cv-education,
+.cv-skills,
+.cv-languages {
+  margin-top: var(--space-md);
+}
+
+.cv ul {
   list-style: none;
 }

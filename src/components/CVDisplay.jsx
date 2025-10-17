@@ -1,4 +1,5 @@
 import "../styles/CVDisplay.css";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function CVDisplay({
   info,
@@ -21,9 +22,18 @@ export default function CVDisplay({
         <div className="info">
           <h1>{info.name}</h1>
           <div className="contact-info">
-            <p>{info.address}</p>
-            <p>{info.phone}</p>
-            <p>{info.email}</p>
+            <p>
+              <MapPin size={16} className="inline mr-1" />
+              {info.address}
+            </p>
+            <p>
+              <Phone size={16} className="inline mr-1" />
+              {info.phone}
+            </p>
+            <p>
+              <Mail size={16} className="inline mr-1" />
+              {info.email}
+            </p>
           </div>
         </div>
       </header>
@@ -31,12 +41,12 @@ export default function CVDisplay({
       <main className="cv-main">
         <section className="left-column">
           <div className="cv-experience">
-            <h2>Work Experience</h2>
+            <h2>Professional Experience</h2>
             {experiences.map((exp) => (
               <div key={exp.id} className="experience-item">
                 <h3>{exp.jobTitle}</h3>
                 <h4>{exp.company}</h4>
-                <p>
+                <p className="cv-date">
                   {exp.startDate} – {exp.endDate}
                 </p>
                 <p>{exp.description}</p>
@@ -50,7 +60,7 @@ export default function CVDisplay({
               <div key={edu.id} className="education-item">
                 <h3>{edu.degree}</h3>
                 <h4>{edu.institution}</h4>
-                <p>
+                <p className="cv-date">
                   {edu.startDate} – {edu.endDate}
                 </p>
                 <p>{edu.description}</p>

@@ -13,6 +13,8 @@ export default function App() {
     email: "",
     phone: "",
     address: "",
+    linkedin: "",
+    github: "",
   });
   const [experiences, setExperiences] = useState([
     {

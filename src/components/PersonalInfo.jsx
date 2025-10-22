@@ -49,6 +49,26 @@ export default function PersonalInfo({ info, setInfo }) {
           onChange={handleChange}
           placeholder="Enter city and country"
         />
+
+        <label htmlFor="linkedin">LinkedIn Profile</label>
+        <input
+          type="url"
+          id="linkedin"
+          name="linkedin"
+          value={info.linkedin}
+          onChange={handleChange}
+          placeholder="Enter LinkedIn profile URL"
+        />
+
+        <label htmlFor="github">GitHub Profile</label>
+        <input
+          type="url"
+          id="github"
+          name="github"
+          value={info.github}
+          onChange={handleChange}
+          placeholder="Enter GitHub profile URL"
+        />
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
 import "../styles/CVDisplay.css";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 function hasValues(obj) {
   return Object.values(obj).some(
@@ -11,6 +12,11 @@ function hasAnyFilled(arr) {
   return arr.some((item) => hasValues(item));
 }
 
+function formatUrl(url) {
+  if (!url) return "";
+  return url.startsWith("http") ? url : `https://${url}`;
+}
+
 export default function CVDisplay({
   info,
   experiences,
@@ -18,6 +24,7 @@ export default function CVDisplay({
   skills,
   languages,
 }) {
+  const iconsSize = 16;
   const proficiencyMap = {
     elementary: "Elementary proficiency",
     limited: "Limited working proficiency",
@@ -35,20 +42,46 @@ export default function CVDisplay({
             <div className="contact-info">
               {info.address && (
                 <p>
-                  <MapPin size={16} className="inline mr-1" />
+                  <MapPin size={iconsSize} />
                   {info.address}
                 </p>
               )}
               {info.phone && (
                 <p>
-                  <Phone size={16} className="inline mr-1" />
+                  <Phone size={iconsSize} />
                   {info.phone}
                 </p>
               )}
               {info.email && (
                 <p>
-                  <Mail size={16} className="inline mr-1" />
+                  <Mail size={iconsSize} />
                   {info.email}
+                </p>
+              )}
+            </div>
+            <div className="social-links">
+              {info.linkedin && (
+                <p>
+                  <FaLinkedin size={iconsSize} />
+                  <a
+                    href={formatUrl(info.linkedin)}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {info.linkedin}
+                  </a>
+                </p>
+              )}
+              {info.github && (
+                <p>
+                  <FaGithub size={iconsSize} />
+                  <a
+                    href={formatUrl(info.github)}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {info.github}
+                  </a>
                 </p>
               )}
             </div>

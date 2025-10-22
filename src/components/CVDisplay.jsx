@@ -17,6 +17,17 @@ function formatUrl(url) {
   return url.startsWith("http") ? url : `https://${url}`;
 }
 
+function renderBulletPoints(text) {
+  if (!text) return null;
+  return (
+    <ul>
+      {text.split("\n").map((line, index) => (
+        <li key={index}>{line}</li>
+      ))}
+    </ul>
+  );
+}
+
 export default function CVDisplay({
   info,
   experiences,
@@ -101,7 +112,7 @@ export default function CVDisplay({
                   <p className="cv-date">
                     {exp.startDate} – {exp.endDate}
                   </p>
-                  <p>{exp.description}</p>
+                  {renderBulletPoints(exp.description)}
                 </div>
               ))}
             </div>
@@ -117,7 +128,6 @@ export default function CVDisplay({
                   <p className="cv-date">
                     {edu.startDate} – {edu.endDate}
                   </p>
-                  <p>{edu.description}</p>
                 </div>
               ))}
             </div>

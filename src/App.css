@@ -212,3 +212,9 @@ textarea:focus {
 .cv ul {
   list-style: none;
 }
+
+.cv-experience ul {
+  list-style: disc inside;
+  line-height: normal;
+  margin-top: var(--space-xs);
+}

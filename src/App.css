@@ -80,7 +80,6 @@ button:hover {
 }
 
 .preview-section {
-  padding: var(--space-xxl);
   color: var(--color-cv-text);
   height: 297mm;
   max-height: 297mm;
@@ -141,7 +140,7 @@ textarea:focus {
 
 .cv-header {
   text-align: center;
-  padding: var(--space-md);
+  padding: var(--space-xl);
   border-bottom: 2px solid var(--color-cv-border);
   background-color: var(--color-preview-card-bg);
 }
@@ -178,6 +177,7 @@ textarea:focus {
 }
 
 .cv-main {
+  padding: var(--space-xl) var(--space-xxl);
   display: grid;
   grid-template-columns: 3fr 2fr;
   gap: 2rem;
@@ -204,9 +204,7 @@ textarea:focus {
   padding-bottom: var(--space-md);
 }
 
-.cv-experience,
 .cv-education,
-.cv-skills,
 .cv-languages {
   margin-top: var(--space-md);
 }

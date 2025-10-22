@@ -6,6 +6,7 @@ import EducationList from "./components/EducationList";
 import SkillsList from "./components/SkillsList";
 import LanguagesList from "./components/LanguagesList";
 import CVDisplay from "./components/CVDisplay";
+import exampleData from "./data/exampleData";
 
 export default function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -49,9 +50,18 @@ export default function App() {
     },
   ]);
 
+  function loadExample() {
+    setPersonalInfo(exampleData.personalInfo);
+    setExperiences(exampleData.experiences);
+    setEducations(exampleData.educations);
+    setSkills(exampleData.skills);
+    setLanguages(exampleData.languages);
+  }
+
   return (
     <div className="App">
       <div className="edit-section">
+        <button onClick={loadExample}>Load Example</button>
         <h1>CV Generator</h1>
         <PersonalInfo info={personalInfo} setInfo={setPersonalInfo} />
         <ExperienceList

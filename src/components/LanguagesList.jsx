@@ -4,7 +4,7 @@ export default function LanguagesList({ languages, setLanguages }) {
   const addLanguage = () => {
     setLanguages([
       ...languages,
-      { id: Date.now(), language: "", proficiency: "elementary" },
+      { id: Date.now(), language: "", proficiency: "" },
     ]);
   };
 

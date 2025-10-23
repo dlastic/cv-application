@@ -8,7 +8,7 @@ const initializePersonalInfo = () => ({
 });
 
 const initializeExperience = () => ({
-  id: Date.now(),
+  id: crypto.randomUUID(),
   company: "",
   jobTitle: "",
   startDate: "",
@@ -17,17 +17,17 @@ const initializeExperience = () => ({
 });
 
 const initializeEducation = () => ({
-  id: Date.now(),
+  id: crypto.randomUUID(),
   institution: "",
   degree: "",
   startDate: "",
   endDate: "",
 });
 
-const initializeSkill = () => ({ id: Date.now(), name: "" });
+const initializeSkill = () => ({ id: crypto.randomUUID(), name: "" });
 
 const initializeLanguage = () => ({
-  id: Date.now(),
+  id: crypto.randomUUID(),
   lang: "",
   proficiency: "",
 });

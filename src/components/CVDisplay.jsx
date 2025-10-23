@@ -3,8 +3,9 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 function hasValues(obj) {
-  return Object.values(obj).some(
-    (value) => typeof value === "string" && value.trim() !== ""
+  return Object.entries(obj).some(
+    ([key, value]) =>
+      key !== "id" && typeof value === "string" && value.trim() !== ""
   );
 }
 

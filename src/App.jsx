@@ -7,40 +7,13 @@ import SkillsList from "./components/SkillsList";
 import LanguagesList from "./components/LanguagesList";
 import CVDisplay from "./components/CVDisplay";
 import exampleData from "./data/exampleData";
-
-const initializePersonalInfo = () => ({
-  name: "",
-  email: "",
-  phone: "",
-  address: "",
-  linkedin: "",
-  github: "",
-});
-
-const initializeExperience = () => ({
-  id: Date.now(),
-  company: "",
-  jobTitle: "",
-  startDate: "",
-  endDate: "",
-  description: "",
-});
-
-const initializeEducation = () => ({
-  id: Date.now(),
-  institution: "",
-  degree: "",
-  startDate: "",
-  endDate: "",
-});
-
-const initializeSkill = () => ({ id: Date.now(), name: "" });
-
-const initializeLanguage = () => ({
-  id: Date.now(),
-  lang: "",
-  proficiency: "",
-});
+import {
+  initializePersonalInfo,
+  initializeExperience,
+  initializeEducation,
+  initializeSkill,
+  initializeLanguage,
+} from "./data/initializers";
 
 export default function App() {
   const [personalInfo, setPersonalInfo] = useState(initializePersonalInfo());

@@ -1,8 +1,9 @@
 import Skill from "./Skill";
+import { initializeSkill } from "../data/initializers";
 
 export default function SkillsList({ skills, setSkills }) {
   const addSkill = () => {
-    setSkills([...skills, { id: Date.now(), name: "" }]);
+    setSkills([...skills, initializeSkill()]);
   };
 
   const updateSkill = (id, updatedSkill) => {

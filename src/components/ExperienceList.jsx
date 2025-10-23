@@ -1,18 +1,9 @@
 import Experience from "./Experience";
+import { initializeExperience } from "../data/initializers";
 
 export default function ExperienceList({ experiences, setExperiences }) {
   const addExperience = () => {
-    setExperiences([
-      ...experiences,
-      {
-        id: Date.now(),
-        company: "",
-        jobTitle: "",
-        startDate: "",
-        endDate: "",
-        description: "",
-      },
-    ]);
+    setExperiences([...experiences, initializeExperience()]);
   };
 
   const updateExperience = (id, updatedExp) => {

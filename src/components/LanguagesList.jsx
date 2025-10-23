@@ -1,11 +1,9 @@
 import Language from "./Language";
+import { initializeLanguage } from "../data/initializers";
 
 export default function LanguagesList({ languages, setLanguages }) {
   const addLanguage = () => {
-    setLanguages([
-      ...languages,
-      { id: Date.now(), language: "", proficiency: "" },
-    ]);
+    setLanguages([...languages, initializeLanguage()]);
   };
 
   const updateLanguage = (id, updatedLang) => {

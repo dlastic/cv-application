@@ -1,17 +1,9 @@
 import Education from "./Education";
+import { initializeEducation } from "../data/initializers";
 
 export default function EducationList({ educations, setEducations }) {
   const addEducation = () => {
-    setEducations([
-      ...educations,
-      {
-        id: Date.now(),
-        institution: "",
-        degree: "",
-        startDate: "",
-        endDate: "",
-      },
-    ]);
+    setEducations([...educations, initializeEducation()]);
   };
 
   const updateEducation = (id, updatedEdu) => {

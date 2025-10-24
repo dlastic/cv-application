@@ -93,7 +93,8 @@ button:hover {
 .experience-list,
 .education-list,
 .skills-list,
-.languages-list {
+.languages-list,
+.projects-list {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
@@ -199,13 +200,15 @@ textarea:focus {
 }
 
 .cv-experience,
-.cv-skills {
+.cv-skills,
+.cv-languages {
   border-bottom: 2px solid var(--color-cv-border);
   padding-bottom: var(--space-md);
 }
 
 .cv-education,
-.cv-languages {
+.cv-languages,
+.cv-projects {
   margin-top: var(--space-md);
 }
 

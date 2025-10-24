@@ -32,10 +32,16 @@ const initializeLanguage = () => ({
   proficiency: "",
 });
 
+const initializeProject = () => ({
+  id: crypto.randomUUID(),
+  title: "",
+});
+
 export {
   initializePersonalInfo,
   initializeExperience,
   initializeEducation,
   initializeSkill,
   initializeLanguage,
+  initializeProject
 };

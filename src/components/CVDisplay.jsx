@@ -35,6 +35,7 @@ export default function CVDisplay({
   educations,
   skills,
   languages,
+  projects,
 }) {
   const iconsSize = 16;
   const proficiencyMap = {
@@ -155,6 +156,17 @@ export default function CVDisplay({
                   <li key={language.id}>
                     {language.lang} – {proficiencyMap[language.proficiency]}
                   </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {hasAnyFilled(projects) && (
+            <div className="cv-projects">
+              <h2>Projects</h2>
+              <ul>
+                {projects.filter(hasValues).map((project) => (
+                  <li key={project.id}>{project.title}</li>
                 ))}
               </ul>
             </div>

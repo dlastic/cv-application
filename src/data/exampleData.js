@@ -58,6 +58,12 @@ const exampleData = {
     { id: 2, lang: "Spanish", proficiency: "full" },
     { id: 3, lang: "French", proficiency: "limited" },
   ],
+  projects: [
+    { id: 1, title: "CLI tool for task automation" },
+    { id: 2, title: "Web-based project management app" },
+    { id: 3, title: "Personal portfolio website" },
+    { id: 4, title: "Open-source contributions to libraries" },
+  ],
 };
 
 export default exampleData;

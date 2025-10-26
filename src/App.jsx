@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import CollapsibleSection from "./components/CollapsibleSection";
 import PersonalInfo from "./components/PersonalInfo";
 import ExperienceList from "./components/ExperienceList";
 import EducationList from "./components/EducationList";
@@ -43,21 +44,61 @@ export default function App() {
     setProjects([initializeProject()]);
   }
 
+  const sections = [
+    {
+      key: "personal",
+      title: "Personal Information",
+      defaultOpen: true,
+      content: <PersonalInfo info={personalInfo} setInfo={setPersonalInfo} />,
+    },
+    {
+      key: "experience",
+      title: "Professional Experience",
+      content: (
+        <ExperienceList
+          experiences={experiences}
+          setExperiences={setExperiences}
+        />
+      ),
+    },
+    {
+      key: "education",
+      title: "Education",
+      content: (
+        <EducationList educations={educations} setEducations={setEducations} />
+      ),
+    },
+    {
+      key: "skills",
+      title: "Skills",
+      content: <SkillsList skills={skills} setSkills={setSkills} />,
+    },
+    {
+      key: "languages",
+      title: "Languages",
+      content: (
+        <LanguagesList languages={languages} setLanguages={setLanguages} />
+      ),
+    },
+    {
+      key: "projects",
+      title: "Projects",
+      content: <ProjectsList projects={projects} setProjects={setProjects} />,
+    },
+  ];
+
   return (
     <div className="App">
       <div className="edit-section">
         <button onClick={loadExample}>Load Example</button>
         <button onClick={clearData}>Clear Data</button>
         <h1>CV Generator</h1>
-        <PersonalInfo info={personalInfo} setInfo={setPersonalInfo} />
-        <ExperienceList
-          experiences={experiences}
-          setExperiences={setExperiences}
-        />
-        <EducationList educations={educations} setEducations={setEducations} />
-        <SkillsList skills={skills} setSkills={setSkills} />
-        <LanguagesList languages={languages} setLanguages={setLanguages} />
-        <ProjectsList projects={projects} setProjects={setProjects}/>
+
+        {sections.map(({ key, title, content, defaultOpen }) => (
+          <CollapsibleSection key={key} title={title} defaultOpen={defaultOpen}>
+            {content}
+          </CollapsibleSection>
+        ))}
       </div>
 
       <div className="preview-section">

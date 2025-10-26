@@ -17,8 +17,7 @@ export default function LanguagesList({ languages, setLanguages }) {
   };
 
   return (
-    <div className="languages-list">
-      <h2>Languages</h2>
+    <>
       {languages.map((language) => (
         <Language
           key={language.id}
@@ -32,6 +31,6 @@ export default function LanguagesList({ languages, setLanguages }) {
       <button type="button" onClick={addLanguage}>
         Add Language
       </button>
-    </div>
+    </>
   );
 }

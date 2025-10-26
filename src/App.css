@@ -89,20 +89,35 @@ button:hover {
   min-width: 210mm;
 }
 
-.personal-info,
-.experience-list,
-.education-list,
-.skills-list,
-.languages-list,
-.projects-list {
+.collapsible-section {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--space-lg);
+  background: var(--color-card-bg);
+  padding: var(--space-md);
+}
+
+.collapsible-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  background: #eaeaea;
+  border-radius: 8px;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.collapsible-header:hover {
+  background: #ddd;
+}
+
+.collapsible-content {
+  margin-top: var(--space-md);
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
-  margin-bottom: var(--space-xl);
-  padding: var(--space-md);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  background-color: var(--color-card-bg);
 }
 
 label {

@@ -17,8 +17,7 @@ export default function ExperienceList({ experiences, setExperiences }) {
   };
 
   return (
-    <div className="experience-list">
-      <h2>Work Experience</h2>
+    <>
       {experiences.map((exp) => (
         <Experience
           key={exp.id}
@@ -30,6 +29,6 @@ export default function ExperienceList({ experiences, setExperiences }) {
       <button type="button" onClick={addExperience}>
         Add Experience
       </button>
-    </div>
+    </>
   );
 }

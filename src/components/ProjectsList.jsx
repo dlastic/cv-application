@@ -17,8 +17,7 @@ export default function ProjectsList({ projects, setProjects }) {
   };
 
   return (
-    <div className="projects-list">
-      <h2>Projects</h2>
+    <>
       {projects.map((project) => (
         <Project
           key={project.id}
@@ -32,6 +31,6 @@ export default function ProjectsList({ projects, setProjects }) {
       <button type="button" onClick={addProject}>
         Add Project
       </button>
-    </div>
+    </>
   );
 }

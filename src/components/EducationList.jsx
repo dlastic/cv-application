@@ -15,8 +15,7 @@ export default function EducationList({ educations, setEducations }) {
   };
 
   return (
-    <div className="education-list">
-      <h2>Education</h2>
+    <>
       {educations.map((edu) => (
         <Education
           key={edu.id}
@@ -28,6 +27,6 @@ export default function EducationList({ educations, setEducations }) {
       <button type="button" onClick={addEducation}>
         Add Education
       </button>
-    </div>
+    </>
   );
 }

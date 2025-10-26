@@ -15,8 +15,7 @@ export default function SkillsList({ skills, setSkills }) {
   };
 
   return (
-    <div className="skills-list">
-      <h2>Skills</h2>
+    <>
       {skills.map((skill) => (
         <Skill
           key={skill.id}
@@ -28,6 +27,6 @@ export default function SkillsList({ skills, setSkills }) {
       <button type="button" onClick={addSkill}>
         Add Skill
       </button>
-    </div>
+    </>
   );
 }

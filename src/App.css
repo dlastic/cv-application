@@ -114,10 +114,20 @@ button:hover {
 }
 
 .collapsible-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  transition: grid-template-rows 0.3s ease, margin-top 0.3s ease;
+  overflow: hidden;
+}
+
+.collapsible-content.open {
   margin-top: var(--space-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
+  grid-template-rows: 1fr;
+}
+
+.collapsible-inner {
+  overflow: hidden;
 }
 
 label {

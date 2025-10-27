@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
-export default function CollapsibleSection({ title, defaultOpen = false, children }) {
+export default function CollapsibleSection({
+  title,
+  defaultOpen = false,
+  children,
+}) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
@@ -10,7 +14,9 @@ export default function CollapsibleSection({ title, defaultOpen = false, childre
         <h2>{title}</h2>
         {isOpen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
       </div>
-      {isOpen && <div className="collapsible-content">{children}</div>}
+      <div className={`collapsible-content ${isOpen ? "open" : "closed"}`}>
+        <div className="collapsible-inner">{children}</div>
+      </div>
     </div>
   );
 }

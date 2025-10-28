@@ -62,9 +62,15 @@ export default function Experience({
           placeholder="Describe your role and achievements"
         ></textarea>
 
-        <button type="button" onClick={deleteExperience}>
-          Delete
-        </button>
+        <div className="form-actions">
+          <button
+            className="btn btn-danger"
+            type="button"
+            onClick={deleteExperience}
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   );

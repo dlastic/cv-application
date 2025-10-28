@@ -26,9 +26,15 @@ export default function ExperienceList({ experiences, setExperiences }) {
           deleteExperience={() => deleteExperience(exp.id)}
         />
       ))}
-      <button type="button" onClick={addExperience}>
-        Add Experience
-      </button>
+      <div className="list-actions">
+        <button
+          className="btn btn-outline"
+          type="button"
+          onClick={addExperience}
+        >
+          Add Experience
+        </button>
+      </div>
     </>
   );
 }

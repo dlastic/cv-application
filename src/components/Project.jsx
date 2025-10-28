@@ -12,9 +12,15 @@ export default function Project({ project, setProject, deleteProject }) {
           placeholder="Enter project title"
         />
 
-        <button type="button" onClick={deleteProject}>
-          Delete
-        </button>
+        <div className="form-actions">
+          <button
+            className="btn btn-danger"
+            type="button"
+            onClick={deleteProject}
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   );

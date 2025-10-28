@@ -28,9 +28,11 @@ export default function ProjectsList({ projects, setProjects }) {
           deleteProject={() => deleteProject(project.id)}
         />
       ))}
-      <button type="button" onClick={addProject}>
-        Add Project
-      </button>
+      <div className="list-actions">
+        <button className="btn btn-outline" type="button" onClick={addProject}>
+          Add Project
+        </button>
+      </div>
     </>
   );
 }

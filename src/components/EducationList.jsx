@@ -24,9 +24,15 @@ export default function EducationList({ educations, setEducations }) {
           deleteEducation={() => deleteEducation(edu.id)}
         />
       ))}
-      <button type="button" onClick={addEducation}>
-        Add Education
-      </button>
+      <div className="list-actions">
+        <button
+          className="btn btn-outline"
+          type="button"
+          onClick={addEducation}
+        >
+          Add Education
+        </button>
+      </div>
     </>
   );
 }

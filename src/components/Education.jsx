@@ -53,9 +53,15 @@ export default function Education({
           placeholder="Enter end date"
         />
 
-        <button type="button" onClick={deleteEducation}>
-          Delete
-        </button>
+        <div className="form-actions">
+          <button
+            className="btn btn-danger"
+            type="button"
+            onClick={deleteEducation}
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   );

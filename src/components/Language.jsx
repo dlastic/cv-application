@@ -36,9 +36,15 @@ export default function Language({ language, setLanguage, deleteLanguage }) {
           <option value="native">Native or bilingual proficiency</option>
         </select>
 
-        <button type="button" onClick={deleteLanguage}>
-          Delete
-        </button>
+        <div className="form-actions">
+          <button
+            className="btn btn-danger"
+            type="button"
+            onClick={deleteLanguage}
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   );

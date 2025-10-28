@@ -28,9 +28,11 @@ export default function LanguagesList({ languages, setLanguages }) {
           deleteLanguage={() => deleteLanguage(language.id)}
         />
       ))}
-      <button type="button" onClick={addLanguage}>
-        Add Language
-      </button>
+      <div className="list-actions">
+        <button className="btn btn-outline" type="button" onClick={addLanguage}>
+          Add Language
+        </button>
+      </div>
     </>
   );
 }

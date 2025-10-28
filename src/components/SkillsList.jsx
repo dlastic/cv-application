@@ -24,9 +24,11 @@ export default function SkillsList({ skills, setSkills }) {
           deleteSkill={() => deleteSkill(skill.id)}
         />
       ))}
-      <button type="button" onClick={addSkill}>
-        Add Skill
-      </button>
+      <div className="list-actions">
+        <button className="btn btn-outline" type="button" onClick={addSkill}>
+          Add Skill
+        </button>
+      </div>
     </>
   );
 }

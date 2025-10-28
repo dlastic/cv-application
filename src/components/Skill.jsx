@@ -14,9 +14,15 @@ export default function Skill({ skill, setSkill, deleteSkill }) {
           placeholder="Enter skill"
         />
 
-        <button type="button" onClick={deleteSkill}>
-          Delete
-        </button>
+        <div className="form-actions">
+          <button
+            className="btn btn-danger"
+            type="button"
+            onClick={deleteSkill}
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   );

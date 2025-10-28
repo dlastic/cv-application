@@ -90,8 +90,14 @@ export default function App() {
   return (
     <div className="App">
       <div className="edit-section">
-        <button onClick={loadExample}>Load Example</button>
-        <button onClick={clearData}>Clear Data</button>
+        <div className="toolbar">
+          <button className="btn btn-secondary" onClick={loadExample}>
+            Load Example
+          </button>
+          <button className="btn btn-outline" onClick={clearData}>
+            Clear Data
+          </button>
+        </div>
         <h1>CV Generator</h1>
 
         {sections.map(({ key, title, content, defaultOpen }) => (

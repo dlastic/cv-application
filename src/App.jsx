@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import CollapsibleSection from "./components/CollapsibleSection";
 import PersonalInfo from "./components/PersonalInfo";
@@ -19,6 +19,7 @@ import {
 } from "./data/initializers";
 
 export default function App() {
+  const fileInputRef = useRef(null);
   const [personalInfo, setPersonalInfo] = useState(initializePersonalInfo());
   const [experiences, setExperiences] = useState([initializeExperience()]);
   const [educations, setEducations] = useState([initializeEducation()]);
@@ -68,6 +69,34 @@ export default function App() {
     URL.revokeObjectURL(url);
   }
 
+  function importData() {
+    fileInputRef.current?.click();
+  }
+
+  function handleImport(event) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = ({ target }) => {
+      try {
+        const parsed = JSON.parse(target.result);
+
+        setPersonalInfo(parsed.personalInfo ?? initializePersonalInfo());
+        setExperiences(parsed.experiences ?? [initializeExperience()]);
+        setEducations(parsed.educations ?? [initializeEducation()]);
+        setSkills(parsed.skills ?? [initializeSkill()]);
+        setLanguages(parsed.languages ?? [initializeLanguage()]);
+        setProjects(parsed.projects ?? [initializeProject()]);
+      } catch (error) {
+        console.error("Failed to import CV data", error);
+      } finally {
+        event.target.value = "";
+      }
+    };
+    reader.readAsText(file);
+  }
+
   const sections = [
     {
       key: "personal",
@@ -113,6 +142,13 @@ export default function App() {
 
   return (
     <div className="App">
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="application/json"
+        onChange={handleImport}
+        style={{ display: "none" }}
+      />
       <div className="edit-section">
         <div className="toolbar">
           <button className="btn btn-secondary" onClick={loadExample}>
@@ -120,6 +156,9 @@ export default function App() {
           </button>
           <button className="btn btn-primary" onClick={saveData}>
             Save Data
+          </button>
+          <button className="btn btn-primary" onClick={importData}>
+            Import Data
           </button>
           <button className="btn btn-outline" onClick={clearData}>
             Clear Data

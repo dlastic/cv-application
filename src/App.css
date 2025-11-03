@@ -54,7 +54,6 @@ button {
   border: none;
   border-radius: var(--border-radius);
   padding: var(--space-xs) var(--space-md);
-  /* background-color: var(--color-primary); */
   color: white;
   font-weight: 600;
   display: inline-flex;
@@ -92,6 +91,15 @@ button.btn-secondary:hover {
 
 button.btn-outline:hover {
   background-color: rgba(33, 41, 165, 0.08);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+button.btn-primary:hover {
+  background-color: var(--color-primary-dark);
 }
 
 .btn-danger {

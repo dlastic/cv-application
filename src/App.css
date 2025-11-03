@@ -185,9 +185,16 @@ button.btn-danger:hover {
 
 .toolbar {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: var(--space-sm);
   flex-wrap: wrap;
-  margin-bottom: var(--space-lg);
+}
+
+.toolbar-group {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
 }
 
 .list-actions {

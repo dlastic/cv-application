@@ -151,18 +151,23 @@ export default function App() {
       />
       <div className="edit-section">
         <div className="toolbar">
-          <button className="btn btn-secondary" onClick={loadExample}>
-            Load Example
-          </button>
-          <button className="btn btn-primary" onClick={saveData}>
-            Save Data
-          </button>
-          <button className="btn btn-primary" onClick={importData}>
-            Import Data
-          </button>
-          <button className="btn btn-outline" onClick={clearData}>
-            Clear Data
-          </button>
+          <div className="toolbar-group">
+            <button className="btn btn-secondary" onClick={loadExample}>
+              Load Example
+            </button>
+            <button className="btn btn-outline" onClick={clearData}>
+              Clear Data
+            </button>
+          </div>
+
+          <div className="toolbar-group">
+            <button className="btn btn-primary" onClick={importData}>
+              Import Data
+            </button>
+            <button className="btn btn-primary" onClick={saveData}>
+              Export Data
+            </button>
+          </div>
         </div>
         <h1>CV Generator</h1>
 

@@ -14,6 +14,8 @@
   --color-secondary-text: #20297a;
   --color-danger: #d14343;
   --color-danger-dark: #a92f2f;
+  --color-success: #2f855a;
+  --color-success-dark: #276749;
 
   --space-xxs: 0.25rem;
   --space-xs: 0.5rem;
@@ -111,6 +113,15 @@ button.btn-danger:hover {
   background-color: var(--color-danger-dark);
 }
 
+.btn-success {
+  background-color: var(--color-success);
+  color: #fff;
+}
+
+button.btn-success:hover {
+  background-color: var(--color-success-dark);
+}
+
 .App {
   display: flex;
   align-items: flex-start;
@@ -138,6 +149,7 @@ button.btn-danger:hover {
 }
 
 .preview-section {
+  position: relative;
   color: var(--color-cv-text);
   height: 297mm;
   max-height: 297mm;
@@ -145,6 +157,13 @@ button.btn-danger:hover {
   width: 210mm;
   max-width: 210mm;
   min-width: 210mm;
+}
+
+.preview-save {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  z-index: 1;
 }
 
 .collapsible-section {
@@ -256,6 +275,7 @@ textarea:focus {
   padding: var(--space-xl);
   border-bottom: 2px solid var(--color-cv-border);
   background-color: var(--color-preview-card-bg);
+  print-color-adjust: exact;
 }
 
 .info {
@@ -332,4 +352,31 @@ textarea:focus {
   list-style: disc inside;
   line-height: normal;
   margin-top: var(--space-xs);
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  .App {
+    display: block;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+
+  .App > :not(.preview-section) {
+    display: none !important;
+  }
+
+  .preview-section {
+    margin: 0 auto;
+    box-shadow: none;
+  }
+
+  .preview-save {
+    display: none !important;
+  }
 }

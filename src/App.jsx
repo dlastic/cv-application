@@ -97,6 +97,21 @@ export default function App() {
     reader.readAsText(file);
   }
 
+  function saveAsPDF() {
+    const originalTitle = document.title;
+    const rawLastName =
+      personalInfo?.name?.trim().split(/\s+/).slice(-1)[0] || "Template";
+    const asciiLastName =
+      rawLastName
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^A-Za-z]/g, "") || "Template";
+
+    document.title = `CV_${asciiLastName}`;
+    window.print();
+    document.title = originalTitle;
+  }
+
   const sections = [
     {
       key: "personal",
@@ -179,6 +194,9 @@ export default function App() {
       </div>
 
       <div className="preview-section">
+        <button className="btn btn-success preview-save" onClick={saveAsPDF}>
+          Save as PDF
+        </button>
         <CVDisplay
           info={personalInfo}
           experiences={experiences}

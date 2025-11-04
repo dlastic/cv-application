@@ -113,6 +113,7 @@ button.btn-danger:hover {
 
 .App {
   display: flex;
+  align-items: flex-start;
   margin: auto;
   gap: var(--space-xl);
   padding: var(--space-xl);
@@ -132,6 +133,10 @@ button.btn-danger:hover {
   flex: 1;
 }
 
+.edit-section h1 {
+  margin: var(--space-sm) 0;
+}
+
 .preview-section {
   color: var(--color-cv-text);
   height: 297mm;
@@ -145,9 +150,12 @@ button.btn-danger:hover {
 .collapsible-section {
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
-  margin-bottom: var(--space-lg);
   background: var(--color-card-bg);
   padding: var(--space-md);
+}
+
+.collapsible-section:not(:last-child) {
+  margin-bottom: var(--space-lg);
 }
 
 .collapsible-header {
@@ -208,11 +216,7 @@ button.btn-danger:hover {
   justify-content: flex-end;
 }
 
-.experience form,
-.education form,
-.skill form,
-.project form,
-.languages form {
+.collapsible-inner form {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
@@ -221,7 +225,6 @@ button.btn-danger:hover {
 label {
   display: block;
   font-weight: 600;
-  margin-bottom: var(--space-xxs);
 }
 
 input,

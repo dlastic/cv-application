@@ -7,7 +7,7 @@ export default function PersonalInfo({ info, setInfo }) {
   };
 
   return (
-    <form>
+    <form onSubmit={(event) => event.preventDefault()}>
       <label htmlFor="name">Full Name</label>
       <input
         type="text"

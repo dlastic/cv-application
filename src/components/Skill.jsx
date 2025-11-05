@@ -3,7 +3,7 @@ import "../styles/Skills.css";
 export default function Skill({ skill, setSkill, deleteSkill }) {
   return (
     <div className="skill">
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <label htmlFor={`skill-${skill.id}`}>Skill</label>
         <input
           type="text"

@@ -1,7 +1,7 @@
 export default function Project({ project, setProject, deleteProject }) {
   return (
     <div className="project">
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <label htmlFor={`project-${project.id}`}>Project Title</label>
         <input
           type="text"

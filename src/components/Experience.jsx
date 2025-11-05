@@ -12,7 +12,7 @@ export default function Experience({
 
   return (
     <div className="experience">
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <label htmlFor={`company-${experience.id}`}>Company</label>
         <input
           type="text"

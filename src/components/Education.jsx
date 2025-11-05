@@ -12,7 +12,7 @@ export default function Education({
 
   return (
     <div className="education">
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <label htmlFor={`institution-${education.id}`}>Institution</label>
         <input
           type="text"

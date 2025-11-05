@@ -8,7 +8,7 @@ export default function Language({ language, setLanguage, deleteLanguage }) {
 
   return (
     <div className="languages">
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <label htmlFor={`language-${language.id}`}>Language</label>
         <input
           type="text"

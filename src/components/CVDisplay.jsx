@@ -1,4 +1,3 @@
-import "../styles/CVDisplay.css";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 

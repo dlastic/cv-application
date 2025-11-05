@@ -1,5 +1,3 @@
-import "../styles/Skills.css";
-
 export default function Skill({ skill, setSkill, deleteSkill }) {
   return (
     <div className="skill">

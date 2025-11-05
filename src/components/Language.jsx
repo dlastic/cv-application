@@ -1,5 +1,3 @@
-import "../styles/Languages.css";
-
 export default function Language({ language, setLanguage, deleteLanguage }) {
   const handleChange = (e) => {
     const { name, value } = e.target;

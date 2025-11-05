@@ -1,5 +1,3 @@
-import "../styles/PersonalInfo.css";
-
 export default function PersonalInfo({ info, setInfo }) {
   const handleChange = (e) => {
     const { name, value } = e.target;

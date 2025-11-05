@@ -1,5 +1,3 @@
-import "../styles/Experience.css";
-
 export default function Experience({
   experience,
   setExperience,

@@ -26,7 +26,7 @@ export default function Language({ language, setLanguage, deleteLanguage }) {
           value={language.proficiency}
           onChange={handleChange}
         >
-          <option value="" selected disabled hidden>
+          <option value="" disabled hidden>
             Select proficiency
           </option>
           <option value="elementary">Elementary proficiency</option>

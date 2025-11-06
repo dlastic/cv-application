@@ -98,18 +98,7 @@ export default function App() {
   }
 
   function saveAsPDF() {
-    const originalTitle = document.title;
-    const rawLastName =
-      personalInfo?.name?.trim().split(/\s+/).slice(-1)[0] || "Template";
-    const asciiLastName =
-      rawLastName
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^A-Za-z]/g, "") || "Template";
-
-    document.title = `CV_${asciiLastName}`;
     window.print();
-    document.title = originalTitle;
   }
 
   const sections = [

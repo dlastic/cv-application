@@ -1,5 +1,5 @@
 import Language from "./Language";
-import { initializeLanguage } from "../data/initializers";
+import { initializeLanguage } from "../state/initialState";
 
 export default function LanguagesList({ languages, setLanguages }) {
   const addLanguage = () => {

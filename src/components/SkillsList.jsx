@@ -1,5 +1,5 @@
 import Skill from "./Skill";
-import { initializeSkill } from "../data/initializers";
+import { initializeSkill } from "../state/initialState";
 
 export default function SkillsList({ skills, setSkills }) {
   const addSkill = () => {

@@ -1,4 +1,4 @@
-const exampleData = {
+const exampleCV = {
   personalInfo: {
     name: "Jon Doe",
     email: "john.doe@example.com",
@@ -66,4 +66,4 @@ const exampleData = {
   ],
 };
 
-export default exampleData;
+export default exampleCV;

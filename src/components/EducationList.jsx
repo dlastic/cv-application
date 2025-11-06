@@ -1,5 +1,5 @@
 import Education from "./Education";
-import { initializeEducation } from "../data/initializers";
+import { initializeEducation } from "../state/initialState";
 
 export default function EducationList({ educations, setEducations }) {
   const addEducation = () => {

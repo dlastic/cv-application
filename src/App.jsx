@@ -8,7 +8,7 @@ import SkillsList from "./components/SkillsList";
 import LanguagesList from "./components/LanguagesList";
 import ProjectsList from "./components/ProjectsList";
 import CVDisplay from "./components/CVDisplay";
-import exampleData from "./data/exampleData";
+import exampleCV from "./state/exampleCV";
 import {
   initializePersonalInfo,
   initializeExperience,
@@ -16,7 +16,7 @@ import {
   initializeSkill,
   initializeLanguage,
   initializeProject,
-} from "./data/initializers";
+} from "./state/initialState";
 
 export default function App() {
   const fileInputRef = useRef(null);
@@ -28,12 +28,12 @@ export default function App() {
   const [projects, setProjects] = useState([initializeProject()]);
 
   function loadExample() {
-    setPersonalInfo(exampleData.personalInfo);
-    setExperiences(exampleData.experiences);
-    setEducations(exampleData.educations);
-    setSkills(exampleData.skills);
-    setLanguages(exampleData.languages);
-    setProjects(exampleData.projects);
+    setPersonalInfo(exampleCV.personalInfo);
+    setExperiences(exampleCV.experiences);
+    setEducations(exampleCV.educations);
+    setSkills(exampleCV.skills);
+    setLanguages(exampleCV.languages);
+    setProjects(exampleCV.projects);
   }
 
   function clearData() {

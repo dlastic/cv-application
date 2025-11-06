@@ -1,5 +1,5 @@
 import Experience from "./Experience";
-import { initializeExperience } from "../data/initializers";
+import { initializeExperience } from "../state/initialState";
 
 export default function ExperienceList({ experiences, setExperiences }) {
   const addExperience = () => {

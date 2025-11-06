@@ -1,5 +1,5 @@
 import Project from "./Project";
-import { initializeProject } from "../data/initializers";
+import { initializeProject } from "../state/initialState";
 
 export default function ProjectsList({ projects, setProjects }) {
   const addProject = () => {

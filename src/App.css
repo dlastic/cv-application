@@ -161,8 +161,8 @@ button.btn-success:hover {
 
 .preview-save {
   position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
+  top: var(--space-xl);
+  right: var(--space-xl);
   z-index: 1;
 }
 

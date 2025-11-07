@@ -27,33 +27,83 @@ export default function App() {
   const [languages, setLanguages] = useState([initializeLanguage()]);
   const [projects, setProjects] = useState([initializeProject()]);
 
+  const sections = {
+    personalInfo: {
+      value: personalInfo,
+      setter: setPersonalInfo,
+      init: initializePersonalInfo,
+      title: "Personal Information",
+      defaultOpen: true,
+      render: () => (
+        <PersonalInfo info={personalInfo} setInfo={setPersonalInfo} />
+      ),
+    },
+    experiences: {
+      value: experiences,
+      setter: setExperiences,
+      init: () => [initializeExperience()],
+      title: "Professional Experience",
+      render: () => (
+        <ExperienceList
+          experiences={experiences}
+          setExperiences={setExperiences}
+        />
+      ),
+    },
+    educations: {
+      value: educations,
+      setter: setEducations,
+      init: () => [initializeEducation()],
+      title: "Education",
+      render: () => (
+        <EducationList educations={educations} setEducations={setEducations} />
+      ),
+    },
+    skills: {
+      value: skills,
+      setter: setSkills,
+      init: () => [initializeSkill()],
+      title: "Skills",
+      render: () => <SkillsList skills={skills} setSkills={setSkills} />,
+    },
+    languages: {
+      value: languages,
+      setter: setLanguages,
+      init: () => [initializeLanguage()],
+      title: "Languages",
+      render: () => (
+        <LanguagesList languages={languages} setLanguages={setLanguages} />
+      ),
+    },
+    projects: {
+      value: projects,
+      setter: setProjects,
+      init: () => [initializeProject()],
+      title: "Projects",
+      render: () => (
+        <ProjectsList projects={projects} setProjects={setProjects} />
+      ),
+    },
+  };
+
+  function applySectionData(data = {}) {
+    Object.entries(sections).forEach(([key, { setter, init }]) => {
+      setter(data[key] ?? init());
+    });
+  }
+
   function loadExample() {
-    setPersonalInfo(exampleCV.personalInfo);
-    setExperiences(exampleCV.experiences);
-    setEducations(exampleCV.educations);
-    setSkills(exampleCV.skills);
-    setLanguages(exampleCV.languages);
-    setProjects(exampleCV.projects);
+    applySectionData(exampleCV);
   }
 
   function clearData() {
-    setPersonalInfo(initializePersonalInfo());
-    setExperiences([initializeExperience()]);
-    setEducations([initializeEducation()]);
-    setSkills([initializeSkill()]);
-    setLanguages([initializeLanguage()]);
-    setProjects([initializeProject()]);
+    applySectionData();
   }
 
   function saveData() {
-    const exportData = {
-      personalInfo,
-      experiences,
-      educations,
-      skills,
-      languages,
-      projects,
-    };
+    const exportData = Object.fromEntries(
+      Object.entries(sections).map(([key, { value }]) => [key, value])
+    );
 
     const blob = new Blob([JSON.stringify(exportData, null, 2)], {
       type: "application/json",
@@ -81,13 +131,7 @@ export default function App() {
     reader.onload = ({ target }) => {
       try {
         const parsed = JSON.parse(target.result);
-
-        setPersonalInfo(parsed.personalInfo ?? initializePersonalInfo());
-        setExperiences(parsed.experiences ?? [initializeExperience()]);
-        setEducations(parsed.educations ?? [initializeEducation()]);
-        setSkills(parsed.skills ?? [initializeSkill()]);
-        setLanguages(parsed.languages ?? [initializeLanguage()]);
-        setProjects(parsed.projects ?? [initializeProject()]);
+        applySectionData(parsed);
       } catch (error) {
         console.error("Failed to import CV data", error);
       } finally {
@@ -100,49 +144,6 @@ export default function App() {
   function saveAsPDF() {
     window.print();
   }
-
-  const sections = [
-    {
-      key: "personal",
-      title: "Personal Information",
-      defaultOpen: true,
-      content: <PersonalInfo info={personalInfo} setInfo={setPersonalInfo} />,
-    },
-    {
-      key: "experience",
-      title: "Professional Experience",
-      content: (
-        <ExperienceList
-          experiences={experiences}
-          setExperiences={setExperiences}
-        />
-      ),
-    },
-    {
-      key: "education",
-      title: "Education",
-      content: (
-        <EducationList educations={educations} setEducations={setEducations} />
-      ),
-    },
-    {
-      key: "skills",
-      title: "Skills",
-      content: <SkillsList skills={skills} setSkills={setSkills} />,
-    },
-    {
-      key: "languages",
-      title: "Languages",
-      content: (
-        <LanguagesList languages={languages} setLanguages={setLanguages} />
-      ),
-    },
-    {
-      key: "projects",
-      title: "Projects",
-      content: <ProjectsList projects={projects} setProjects={setProjects} />,
-    },
-  ];
 
   return (
     <div className="App">
@@ -175,9 +176,13 @@ export default function App() {
         </div>
         <h1>CV Generator</h1>
 
-        {sections.map(({ key, title, content, defaultOpen }) => (
-          <CollapsibleSection key={key} title={title} defaultOpen={defaultOpen}>
-            {content}
+        {Object.entries(sections).map(([key, section]) => (
+          <CollapsibleSection
+            key={key}
+            title={section.title}
+            defaultOpen={section.defaultOpen}
+          >
+            {section.render()}
           </CollapsibleSection>
         ))}
       </div>

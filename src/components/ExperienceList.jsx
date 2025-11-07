@@ -1,20 +1,12 @@
 import Experience from "./Experience";
 import { initializeExperience } from "../state/initialState";
+import useItemList from "../hooks/useItemList";
 
 export default function ExperienceList({ experiences, setExperiences }) {
-  const addExperience = () => {
-    setExperiences([...experiences, initializeExperience()]);
-  };
-
-  const updateExperience = (id, updatedExp) => {
-    setExperiences(
-      experiences.map((exp) => (exp.id === id ? updatedExp : exp))
-    );
-  };
-
-  const deleteExperience = (id) => {
-    setExperiences(experiences.filter((exp) => exp.id !== id));
-  };
+  const { addItem, updateItem, deleteItem } = useItemList(
+    setExperiences,
+    initializeExperience
+  );
 
   return (
     <>
@@ -22,15 +14,15 @@ export default function ExperienceList({ experiences, setExperiences }) {
         <Experience
           key={exp.id}
           experience={exp}
-          setExperience={(updatedExp) => updateExperience(exp.id, updatedExp)}
-          deleteExperience={() => deleteExperience(exp.id)}
+          setExperience={(updatedExp) => updateItem(exp.id, updatedExp)}
+          deleteExperience={() => deleteItem(exp.id)}
         />
       ))}
       <div className="list-actions">
         <button
           className="btn btn-outline"
           type="button"
-          onClick={addExperience}
+          onClick={addItem}
         >
           Add Experience
         </button>

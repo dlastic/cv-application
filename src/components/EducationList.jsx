@@ -1,18 +1,12 @@
 import Education from "./Education";
 import { initializeEducation } from "../state/initialState";
+import useItemList from "../hooks/useItemList";
 
 export default function EducationList({ educations, setEducations }) {
-  const addEducation = () => {
-    setEducations([...educations, initializeEducation()]);
-  };
-
-  const updateEducation = (id, updatedEdu) => {
-    setEducations(educations.map((edu) => (edu.id === id ? updatedEdu : edu)));
-  };
-
-  const deleteEducation = (id) => {
-    setEducations(educations.filter((edu) => edu.id !== id));
-  };
+  const { addItem, updateItem, deleteItem } = useItemList(
+    setEducations,
+    initializeEducation
+  );
 
   return (
     <>
@@ -20,15 +14,15 @@ export default function EducationList({ educations, setEducations }) {
         <Education
           key={edu.id}
           education={edu}
-          setEducation={(updatedEdu) => updateEducation(edu.id, updatedEdu)}
-          deleteEducation={() => deleteEducation(edu.id)}
+          setEducation={(updatedEdu) => updateItem(edu.id, updatedEdu)}
+          deleteEducation={() => deleteItem(edu.id)}
         />
       ))}
       <div className="list-actions">
         <button
           className="btn btn-outline"
           type="button"
-          onClick={addEducation}
+          onClick={addItem}
         >
           Add Education
         </button>

@@ -1,20 +1,12 @@
 import Language from "./Language";
 import { initializeLanguage } from "../state/initialState";
+import useItemList from "../hooks/useItemList";
 
 export default function LanguagesList({ languages, setLanguages }) {
-  const addLanguage = () => {
-    setLanguages([...languages, initializeLanguage()]);
-  };
-
-  const updateLanguage = (id, updatedLang) => {
-    setLanguages(
-      languages.map((lang) => (lang.id === id ? updatedLang : lang))
-    );
-  };
-
-  const deleteLanguage = (id) => {
-    setLanguages(languages.filter((lang) => lang.id !== id));
-  };
+  const { addItem, updateItem, deleteItem } = useItemList(
+    setLanguages,
+    initializeLanguage
+  );
 
   return (
     <>
@@ -23,13 +15,13 @@ export default function LanguagesList({ languages, setLanguages }) {
           key={language.id}
           language={language}
           setLanguage={(updatedLanguage) =>
-            updateLanguage(language.id, updatedLanguage)
+            updateItem(language.id, updatedLanguage)
           }
-          deleteLanguage={() => deleteLanguage(language.id)}
+          deleteLanguage={() => deleteItem(language.id)}
         />
       ))}
       <div className="list-actions">
-        <button className="btn btn-outline" type="button" onClick={addLanguage}>
+        <button className="btn btn-outline" type="button" onClick={addItem}>
           Add Language
         </button>
       </div>

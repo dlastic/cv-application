@@ -1,20 +1,12 @@
 import Project from "./Project";
 import { initializeProject } from "../state/initialState";
+import useItemList from "../hooks/useItemList";
 
 export default function ProjectsList({ projects, setProjects }) {
-  const addProject = () => {
-    setProjects([...projects, initializeProject()]);
-  };
-
-  const updateProject = (id, updatedProject) => {
-    setProjects(
-      projects.map((project) => (project.id === id ? updatedProject : project))
-    );
-  };
-
-  const deleteProject = (id) => {
-    setProjects(projects.filter((project) => project.id !== id));
-  };
+  const { addItem, updateItem, deleteItem } = useItemList(
+    setProjects,
+    initializeProject
+  );
 
   return (
     <>
@@ -23,13 +15,13 @@ export default function ProjectsList({ projects, setProjects }) {
           key={project.id}
           project={project}
           setProject={(updatedProject) =>
-            updateProject(project.id, updatedProject)
+            updateItem(project.id, updatedProject)
           }
-          deleteProject={() => deleteProject(project.id)}
+          deleteProject={() => deleteItem(project.id)}
         />
       ))}
       <div className="list-actions">
-        <button className="btn btn-outline" type="button" onClick={addProject}>
+        <button className="btn btn-outline" type="button" onClick={addItem}>
           Add Project
         </button>
       </div>

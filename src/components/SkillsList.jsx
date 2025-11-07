@@ -1,18 +1,12 @@
 import Skill from "./Skill";
 import { initializeSkill } from "../state/initialState";
+import useItemList from "../hooks/useItemList";
 
 export default function SkillsList({ skills, setSkills }) {
-  const addSkill = () => {
-    setSkills([...skills, initializeSkill()]);
-  };
-
-  const updateSkill = (id, updatedSkill) => {
-    setSkills(skills.map((skill) => (skill.id === id ? updatedSkill : skill)));
-  };
-
-  const deleteSkill = (id) => {
-    setSkills(skills.filter((skill) => skill.id !== id));
-  };
+  const { addItem, updateItem, deleteItem } = useItemList(
+    setSkills,
+    initializeSkill
+  );
 
   return (
     <>
@@ -20,12 +14,12 @@ export default function SkillsList({ skills, setSkills }) {
         <Skill
           key={skill.id}
           skill={skill}
-          setSkill={(updatedSkill) => updateSkill(skill.id, updatedSkill)}
-          deleteSkill={() => deleteSkill(skill.id)}
+          setSkill={(updatedSkill) => updateItem(skill.id, updatedSkill)}
+          deleteSkill={() => deleteItem(skill.id)}
         />
       ))}
       <div className="list-actions">
-        <button className="btn btn-outline" type="button" onClick={addSkill}>
+        <button className="btn btn-outline" type="button" onClick={addItem}>
           Add Skill
         </button>
       </div>

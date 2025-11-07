@@ -1,4 +1,9 @@
 export default function Project({ project, setProject, deleteProject }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProject({ ...project, [name]: value });
+  };
+
   return (
     <div className="project">
       <form onSubmit={(event) => event.preventDefault()}>
@@ -8,7 +13,7 @@ export default function Project({ project, setProject, deleteProject }) {
           id={`project-${project.id}`}
           name="title"
           value={project.title}
-          onChange={(e) => setProject({ ...project, title: e.target.value })}
+          onChange={handleChange}
           placeholder="Enter project title"
         />
 

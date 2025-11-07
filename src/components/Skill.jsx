@@ -1,4 +1,9 @@
 export default function Skill({ skill, setSkill, deleteSkill }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSkill({ ...skill, [name]: value });
+  };
+
   return (
     <div className="skill">
       <form onSubmit={(event) => event.preventDefault()}>
@@ -6,9 +11,9 @@ export default function Skill({ skill, setSkill, deleteSkill }) {
         <input
           type="text"
           id={`skill-${skill.id}`}
-          name="skill"
+          name="name"
           value={skill.name}
-          onChange={(e) => setSkill({ ...skill, name: e.target.value })}
+          onChange={handleChange}
           placeholder="Enter skill"
         />
 

@@ -50,7 +50,7 @@ body {
   color: var(--color-text);
 }
 
-button {
+.btn {
   cursor: pointer;
   font-family: inherit;
   border: none;
@@ -65,12 +65,12 @@ button {
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
-button:hover {
+.btn:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-1px);
 }
 
-button:focus-visible {
+.btn:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
@@ -81,7 +81,7 @@ button:focus-visible {
   border: 1px solid var(--color-outline-border);
 }
 
-button.btn-secondary:hover {
+.btn-secondary:hover {
   background-color: #dfe4ff;
 }
 
@@ -91,7 +91,7 @@ button.btn-secondary:hover {
   border: 1px solid var(--color-outline-border);
 }
 
-button.btn-outline:hover {
+.btn-outline:hover {
   background-color: rgba(33, 41, 165, 0.08);
 }
 
@@ -100,7 +100,7 @@ button.btn-outline:hover {
   color: #fff;
 }
 
-button.btn-primary:hover {
+.btn-primary:hover {
   background-color: var(--color-primary-dark);
 }
 
@@ -109,7 +109,7 @@ button.btn-primary:hover {
   color: #fff;
 }
 
-button.btn-danger:hover {
+.btn-danger:hover {
   background-color: var(--color-danger-dark);
 }
 
@@ -118,7 +118,7 @@ button.btn-danger:hover {
   color: #fff;
 }
 
-button.btn-success:hover {
+.btn-success:hover {
   background-color: var(--color-success-dark);
 }
 
@@ -178,19 +178,25 @@ button.btn-success:hover {
 }
 
 .collapsible-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6rem 1rem;
+  padding: var(--space-sm) var(--space-md);
   cursor: pointer;
-  background: #eaeaea;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
+  border: inherit;
   user-select: none;
   transition: background 0.2s ease;
 }
 
+.collapsible-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+}
+
 .collapsible-header:hover {
-  background: #ddd;
+  background: var(--color-border);
 }
 
 .collapsible-content {

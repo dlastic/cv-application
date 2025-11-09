@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 export default function CollapsibleSection({
@@ -7,14 +7,24 @@ export default function CollapsibleSection({
   children,
 }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
+  const contentId = useId();
 
   return (
     <div className="collapsible-section">
-      <div className="collapsible-header" onClick={() => setIsOpen(!isOpen)}>
-        <h2>{title}</h2>
+      <button
+        type="button"
+        className="collapsible-header"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-controls={contentId}
+      >
+        <span className="collapsible-title">{title}</span>
         {isOpen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
-      </div>
-      <div className={`collapsible-content ${isOpen ? "open" : "closed"}`}>
+      </button>
+      <div
+        id={contentId}
+        className={`collapsible-content ${isOpen ? "open" : "closed"}`}
+      >
         <div className="collapsible-inner">{children}</div>
       </div>
     </div>

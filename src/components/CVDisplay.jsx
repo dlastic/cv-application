@@ -1,5 +1,10 @@
-import { MapPin, Phone, Mail } from "lucide-react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+} from "react-icons/fa";
 
 function hasValues(obj) {
   return Object.entries(obj).some(
@@ -54,19 +59,19 @@ export default function CVDisplay({
             <div className="contact-info">
               {info.address && (
                 <p>
-                  <MapPin size={iconsSize} />
+                  <FaMapMarkerAlt size={iconsSize} />
                   {info.address}
                 </p>
               )}
               {info.phone && (
                 <p>
-                  <Phone size={iconsSize} />
+                  <FaPhoneAlt size={iconsSize} />
                   {info.phone}
                 </p>
               )}
               {info.email && (
                 <p>
-                  <Mail size={iconsSize} />
+                  <FaEnvelope size={iconsSize} />
                   {info.email}
                 </p>
               )}

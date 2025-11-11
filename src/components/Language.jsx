@@ -1,3 +1,5 @@
+import { PROFICIENCY_LEVELS } from "../constants/proficiencyLevels";
+
 export default function Language({ language, setLanguage, deleteLanguage }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,11 +29,11 @@ export default function Language({ language, setLanguage, deleteLanguage }) {
           <option value="" disabled hidden>
             Select proficiency
           </option>
-          <option value="elementary">Elementary proficiency</option>
-          <option value="limited">Limited working proficiency</option>
-          <option value="professional">Professional working proficiency</option>
-          <option value="full">Full professional proficiency</option>
-          <option value="native">Native or bilingual proficiency</option>
+          {Object.entries(PROFICIENCY_LEVELS).map(([value, label]) => (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          ))}
         </select>
 
         <div className="form-actions">

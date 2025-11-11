@@ -5,6 +5,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
+import { PROFICIENCY_LEVELS } from "../constants/proficiencyLevels";
 
 function hasValues(obj) {
   return Object.entries(obj).some(
@@ -42,14 +43,6 @@ export default function CVDisplay({
   projects,
 }) {
   const iconsSize = 16;
-  const proficiencyMap = {
-    elementary: "Elementary proficiency",
-    limited: "Limited working proficiency",
-    professional: "Professional working proficiency",
-    full: "Full professional proficiency",
-    native: "Native or bilingual proficiency",
-  };
-
   return (
     <div className="cv">
       {hasValues(info) && (
@@ -158,7 +151,7 @@ export default function CVDisplay({
               <ul>
                 {languages.filter(hasValues).map((language) => (
                   <li key={language.id}>
-                    {language.lang} – {proficiencyMap[language.proficiency]}
+                    {language.lang} – {PROFICIENCY_LEVELS[language.proficiency]}
                   </li>
                 ))}
               </ul>

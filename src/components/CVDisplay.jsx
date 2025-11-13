@@ -6,22 +6,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { PROFICIENCY_LEVELS } from "../constants/proficiencyLevels";
-
-function hasValues(obj) {
-  return Object.entries(obj).some(
-    ([key, value]) =>
-      key !== "id" && typeof value === "string" && value.trim() !== ""
-  );
-}
-
-function hasAnyFilled(arr) {
-  return arr.some((item) => hasValues(item));
-}
-
-function formatUrl(url) {
-  if (!url) return "";
-  return url.startsWith("http") ? url : `https://${url}`;
-}
+import { hasValues, hasAnyFilled, formatUrl } from "../utils/cvDisplayUtils.js";
 
 function renderBulletPoints(text) {
   if (!text) return null;
